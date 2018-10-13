@@ -1,16 +1,23 @@
+/*
+  This template script shows how to convert raw food gameObjects into a cooked version gameObject
+
+  The raw and cooked gameObjects should be children of an empty gameObject
+*/
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RawAndCookedFoodVersions : MonoBehaviour {
+public class RawAndCookedFoodVersionsTemplateScript : MonoBehaviour // Unity preferred name: RawAndCookedFoodVersions
+{
 
-    public GameObject rawVersion, cookedVersion;
+	public GameObject rawVersion, cookedVersion;
 
     public Transform rawVersionPos, cookedVersionPos;
 
     public GameObject rawFood; // All heating method scripts are attached to raw food gameObjects
 
-    private StoveBurnerCooking otherScriptToAccess; // Assigning "StoveBurnerCooking" script to this variable
+    private StoveBurnerCooking otherScriptToAccess, otherScriptToAccess_2; // Assigning "HeatingMethodScripts" scripts to these variables
 
     private bool finishedCooking;
 
@@ -24,12 +31,16 @@ public class RawAndCookedFoodVersions : MonoBehaviour {
         cookedVersion.gameObject.SetActive(false);
 
         otherScriptToAccess = rawFood.GetComponent<StoveBurnerCooking>(); // Accessing "StoveBurnerCooking" script from the raw food gameObject
+    
+        // otherScriptToAccess = rawFood.GetComponent<AnotherHeatingMethodScript>();
     }
 
     // Update is called once per frame
     void Update()
     {
         finishedCooking = otherScriptToAccess.finishedCooking; // Accessing the "finishedCooking" variable from the "StoveBurnerCooking" script and assigning its value to the "finishedCooking" variable in the "RawAndCookedFoodVersionsTemplateScript" script
+
+        // finishedCooking = otherScriptToAccess_2.finishedCooking;
 
         ConvertingToCookedVersion();
     }
