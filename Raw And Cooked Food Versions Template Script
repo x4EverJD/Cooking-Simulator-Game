@@ -32,7 +32,7 @@ public class RawAndCookedFoodVersionsTemplateScript : MonoBehaviour // Unity pre
 
         otherScriptToAccess = rawFood.GetComponent<StoveBurnerCooking>(); // Accessing "StoveBurnerCooking" script from the raw food gameObject
     
-        // otherScriptToAccess = rawFood.GetComponent<AnotherHeatingMethodScript>();
+        // otherScriptToAccess_2 = rawFood.GetComponent<AnotherHeatingMethodScript>();
     }
 
     // Update is called once per frame
