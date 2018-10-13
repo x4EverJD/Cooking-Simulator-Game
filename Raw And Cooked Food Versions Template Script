@@ -1,0 +1,51 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RawAndCookedFoodVersions : MonoBehaviour {
+
+    public GameObject rawVersion, cookedVersion;
+
+    public Transform rawVersionPos, cookedVersionPos;
+
+    public GameObject rawFood; // All heating method scripts are attached to raw food gameObjects
+
+    private StoveBurnerCooking otherScriptToAccess; // Assigning "StoveBurnerCooking" script to this variable
+
+    private bool finishedCooking;
+
+    [SerializeField]private bool converted;
+
+    // Use this for initialization
+    void Start()
+    {
+        rawVersion.gameObject.SetActive(true);
+
+        cookedVersion.gameObject.SetActive(false);
+
+        otherScriptToAccess = rawFood.GetComponent<StoveBurnerCooking>(); // Accessing "StoveBurnerCooking" script from the raw food gameObject
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        finishedCooking = otherScriptToAccess.finishedCooking; // Accessing the "finishedCooking" variable from the "StoveBurnerCooking" script and assigning its value to the "finishedCooking" variable in the "RawAndCookedFoodVersionsTemplateScript" script
+
+        ConvertingToCookedVersion();
+    }
+
+    // Function converts the version of the food gameObject from raw to cooked
+    void ConvertingToCookedVersion()
+    {
+        if (finishedCooking == true)
+        {
+            rawVersion.gameObject.SetActive(false);
+
+            cookedVersionPos.position = rawVersionPos.position;
+
+            cookedVersion.gameObject.SetActive(true);
+
+            converted = true;
+        }
+    }
+}
