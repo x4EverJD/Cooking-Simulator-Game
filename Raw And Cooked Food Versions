@@ -11,7 +11,7 @@ using UnityEngine;
 public class RawAndCookedFoodVersionsTemplateScript : MonoBehaviour // Unity preferred name: RawAndCookedFoodVersions
 {
 
-	public GameObject rawVersion, cookedVersion;
+    public GameObject rawVersion, cookedVersion;
 
     public Transform rawVersionPos, cookedVersionPos;
 
