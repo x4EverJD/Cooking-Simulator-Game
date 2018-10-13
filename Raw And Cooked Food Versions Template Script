@@ -17,7 +17,7 @@ public class RawAndCookedFoodVersionsTemplateScript : MonoBehaviour // Unity pre
 
     public GameObject rawFood; // All heating method scripts are attached to raw food gameObjects
 
-    private StoveBurnerCooking otherScriptToAccess;
+    private StoveBurnerCooking otherScriptToAccess; // Assigning "StoveBurnerCooking" script to this variable
 
     // private HeatingMethodScripts otherScriptToAccess_2;
 
